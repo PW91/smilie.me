@@ -43,6 +43,7 @@
 body {
   font-family: 'Lato', sans-serif;
   color: #ffffff;
+  font-weight: 900;
   background-color: #fcb514;
   margin: 0;
   padding: 0;
@@ -55,7 +56,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.875em 2.8125em 0 2.8125em;
+  padding: 2.2em 3.3em 0 3.3em;
   position: fixed;
   width: 100%;
   top: 0;
@@ -63,21 +64,104 @@ body {
   .icon__close-button {
     width: pxToRem(70);
     cursor: pointer;
+    stroke: #FCB514;
+    position: relative;
+    z-index: 20;
+    transition: all 300ms ease-in-out;
   }
 
   .icon__main-logo {
-    width: pxToRem(70);
+    width: pxToRem(77);
+  }
+
+  .alternative-logo-wrapper {
+    //: 1px solid blue;
+    position: relative;
   }
 
   .icon__alternative-logo {
-    width: pxToRem(135);
+    width: pxToRem(185);
+    //border: 1px solid red;
+    bottom: 1.3em;
+    position: relative;
   }
 
   .icon__question-mark {
-    width: pxToRem(70);
+    width: pxToRem(77);
     cursor: pointer;
+    fill: white;
+    position: relative;
+    z-index: 20;
+    transition: all 300ms ease-in-out;
   }
 }
+
+.close-button-wrapper {
+  border: 2px solid #FCB514;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+
+  &:hover .hover-animation-container-2 {
+    width: 150%;
+    height: 150%;
+  }
+
+  &:hover .icon__close-button {
+    stroke: white;
+  }
+}
+
+.question-mark-wrapper {
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+
+  &:hover .hover-animation-container {
+    width: 150%;
+    height: 150%;
+  }
+
+  &:hover .icon__question-mark {
+    fill: #FCB514;
+  }
+}
+
+.hover-animation-container {
+  width: 0%;
+  height: 0%;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 300ms ease-in-out;
+}
+
+.hover-animation-container-2 {
+  width: 0%;
+  height: 0%;
+  background-color: #FCB514;
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 300ms ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .about-curtain__header {
   @extend .header;
@@ -90,7 +174,6 @@ body {
   @extend .header;
   opacity: 0;
   visibility: hidden;
-  justify-content: flex-end;
   transition-delay: 250ms;
 }
 
@@ -124,6 +207,8 @@ iframe {
 .video-wrapper {
   width: 100%;
   height: 100vh;
+  //border: 3px solid red;
+  overflow: hidden;
 }
 
 
@@ -160,7 +245,8 @@ iframe {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    margin: 0 auto;
+    margin: 1.1em auto 0 auto;
+    //border: 1px solid red;
 
     .icon__main-logo {
       width: pxToRem(100);
@@ -170,16 +256,39 @@ iframe {
   &__text-wrapper {
     text-align: center;
     color: black;
-    width: 15em;
+    //width: 13em;
+    //border: 1px solid blue;
+    margin-top: 4em;
     font-size: pxToRem(33);
+
+    p {
+      margin: 0 auto;
+    }
+
+    .standard {
+      width: 13em;
+    }
+
+    .narrow {
+      width: 10em;
+      margin: 0 auto;
+    }
+
+    .more-space {
+      width: 15em;
+      margin: 2.5em 0 0 0;
+    }
   }
 
+
+
+
   .icon__panowie-programisci-logo {
-    width: pxToRem(80);
+    width: pxToRem(90);
   }
 
   .icon__space-monkeys-logo {
-    width: pxToRem(120);
+    width: pxToRem(115);
   }
 }
 
@@ -192,9 +301,11 @@ iframe {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  //border: 1px solid red;
+  //background-image: url("../back.jpg");
 
   &__content-wrapper {
-    margin-bottom: pxToRem(100);
+    margin-bottom: pxToRem(90);
   }
 }
 
@@ -203,14 +314,19 @@ iframe {
   justify-content: center;
 
   &__circle {
-    width: pxToRem(400);
-    height: pxToRem(400);
-    border: 0.4375em solid #ffffff;
+    width: pxToRem(470);
+    height: pxToRem(470);
+    border: 0.4375em solid white;
     border-radius: 50%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+  }
+
+  &__circle-2 {
+    position: relative;
   }
 
   &__copy-wrapper {
@@ -220,8 +336,20 @@ iframe {
     &--relative {
       @extend .counter__copy-wrapper;
       position: relative;
-      top: -1em;
+      bottom: 0.9em;
     }
+  }
+
+  .counter__half-circle {
+    position: absolute;
+    left: 50%;
+    top: 4em;
+    transform: translateX(-50%);
+    height: pxToRem(195);
+    width: pxToRem(390);
+    background-color: white;
+    border-bottom-left-radius: pxToRem(390);
+    border-bottom-right-radius: pxToRem(390);
   }
 
   &__copy {
@@ -229,15 +357,23 @@ iframe {
     padding: 0;
 
     &--small {
-      font-size: pxToRem(33);
+      font-size: pxToRem(37);
+      font-weight: 400;
+      position: relative;
+      z-index: 5;
     }
 
     &--medium {
-      font-size: pxToRem(55);
+      font-size: pxToRem(62);
+      background-color: #fcb514;
+      position: relative;
+      z-index: 3;
+      margin-top: -0.2em;
+      padding-bottom: 0.3em;
     }
 
     &--big {
-      font-size: pxToRem(144);
+      font-size: pxToRem(165);
       margin: 0;
       padding: 0;
     }
@@ -248,23 +384,38 @@ iframe {
     text-align: center;
     margin: 0;
     padding: 0;
-    margin-top: pxToRem(50);
+    //margin-top: pxToRem(50);
   }
 }
 
 .play-button-wrapper {
-  top: -2.5em;
-  right: 0;
+  top: -3.2em;
+  right: 1.6em;
   transform: translateX(100%);
   position: absolute;
   border-radius: 50%;
-  width: pxToRem(135);
-  height: pxToRem(135);
+  border: 2px solid white;
+  width: pxToRem(155);
+  height: pxToRem(155);
   cursor: pointer;
+  overflow: hidden;
+
+  &:hover .hover-animation-container {
+    width: 150%;
+    height: 150%;
+  }
+
+  &:hover .icon__play-button {
+    fill: #fcb514;
+  }
 }
 
 .icon__play-button {
   width: 100%;
+  fill: white;
+  position: relative;
+  z-index: 10;
+  transition: all 300ms ease-in-out;
 }
 
 
@@ -273,7 +424,7 @@ iframe {
   display: flex;
   justify-content: center;
   font-size: 2rem;
-  padding-bottom: 20px;
+  padding-bottom: 0.6em;
   position: relative;
   bottom: 0;
   position: fixed;
@@ -281,8 +432,56 @@ iframe {
   flex-wrap: wrap;
   background-color: #fcb514;
 
+  &__copy {
+    font-size: pxToRem(36);
+  }
+
   &__copy--mobile {
     display: none;
+  }
+
+  .hover-animation-container {
+    width: 0%;
+    height: 0%;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 300ms ease-in-out;
+  }
+
+  &__icon-wrapper {
+    position: relative;
+    border: 1px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &--left {
+      @extend .footer__icon-wrapper;
+      margin-right: 10px;
+      margin-left: 20px;
+    }
+
+    &--right {
+      @extend .footer__icon-wrapper;
+      margin-left: 10px;
+      margin-right: 20px;
+    }
+
+    &:hover .hover-animation-container {
+      width: 150%;
+      height: 150%;
+    }
+
+    &:hover .icon__app-store {
+      fill: #FCB514;
+    }
+
+    &:hover .icon__google-play {
+      fill: #FCB514;
+    }
   }
 }
 
@@ -295,10 +494,16 @@ iframe {
 }
 
 .icon__google-play {
-  width: pxToRem(180);
-  margin-left: 20px;
-  margin-right: 10px;
+  width: pxToRem(205);
+
+  top: 2px;
+  fill: white;
+  position: relative;
+  z-index: 10;
+  //margin-left: 20px;
+  //margin-right: 10px;
   display: inline-block;
+  transition: all 300ms ease-in-out;
 }
 
 .app-store-wrapper {
@@ -308,15 +513,34 @@ iframe {
   align-items: center;
 }
 
+
+
 .icon__app-store {
-  width: pxToRem(180);
-  margin-right: 20px;
-  margin-left: 10px;
+  position: relative;
+  z-index: 10;
+  //transform: translate(-50%, -50%);
+  top: 2px;
+  //border: 1px solid red;
+  //left: 50%;
+  width: pxToRem(205);
+  fill: white;
+  //filter: invert(0%);
+  //opacity: 0;
+  //fill-opacity: 1;
+  transition: all 300ms ease-in-out;
+  //margin-right: 20px;
+  //margin-left: 10px;
 }
 
 
 
 @media(max-width: 1029px) {
+
+  .header {
+    .icon__alternative-logo {
+      bottom: 0;
+    }
+  }
 
   .footer__copy {
       display: none;
@@ -325,8 +549,16 @@ iframe {
         display: block;
         width: 100%;
         text-align: center;
-        font-size: pxToRem(24);
+        font-size: pxToRem(34);
       }
+  }
+
+  .icon__app-store {
+    width: 1.2 * pxToRem(205);
+  }
+
+  .icon__google-play {
+    width: 1.2 * pxToRem(205);
   }
 }
 
@@ -341,6 +573,6 @@ iframe {
 @media(max-width: 479px) {
 
   .counter__copy--big {
-      font-size: 0.75 * pxToRem(144);
+      font-size: 0.6 * pxToRem(165);
     }
 }

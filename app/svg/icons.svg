@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="apple_store" viewBox="0 0 542.039 542.039">
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; margin-left: -100%;"><symbol id="apple_store" viewBox="0 0 542.039 542.039">
 <g>
 	<g>
 		<g>
@@ -105,9 +105,9 @@
 </symbol><symbol id="close_button" viewBox="0 0 199.999 200.001">
 <g>
 	<circle fill="#FCB514" cx="100" cy="100" r="100"/>
-	
+
 		<line fill="none" stroke="#FFFFFF" stroke-width="13.9546" stroke-miterlimit="10" x1="45.149" y1="45.15" x2="154.849" y2="154.85"/>
-	
+
 		<line fill="none" stroke="#FFFFFF" stroke-width="13.9546" stroke-miterlimit="10" x1="154.849" y1="45.15" x2="45.149" y2="154.85"/>
 </g>
 </symbol><symbol id="panowie_programisci_logo" viewBox="0 0 135 247.106">
@@ -306,8 +306,14 @@
 </g>
 </symbol><symbol id="question_mark" viewBox="0 0 199.999 200.001">
 <g>
-	<circle fill="#FCB514" cx="100" cy="100" r="100"/>
-	<text transform="matrix(1 0 0 1 71.457 151.043)" fill="#FFFFFF" font-family="&apos;Bebas&apos;" font-size="110.554">?</text>
+	<circle fill="#FFFFFF" cx="99.999" cy="100" r="99.999"/>
+	<g>
+		<path fill="#FCB514" d="M71.99,59.02c6.881-5.769,15.916-10.355,28.218-10.355c17.445,0,28.357,9.73,28.357,24.604
+			c0,21.337-19.878,23.353-21.546,32.041l-1.946,9.73H90.339l-1.529-11.19c-0.069-0.556-0.139-1.111-0.139-1.668
+			c0-12.302,19.878-13.831,19.878-27.662c0-5.561-3.893-9.105-10.287-9.105c-9.8,0-12.58,4.935-16.124,4.935
+			c-2.016,0-3.476-0.834-4.448-2.571L71.99,59.02z M97.011,128.246c6.881,0,12.233,5.282,12.233,11.885
+			c0,6.742-5.353,11.885-12.233,11.885c-6.95,0-12.232-5.143-12.232-11.885C84.778,133.528,90.061,128.246,97.011,128.246z"/>
+	</g>
 </g>
 </symbol><symbol id="smilieme_logo" viewBox="0 0 401.841 100">
 <g>
