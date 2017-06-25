@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
        this.aboutCurtain.classList.add('visible');
 
        var footerPosition = this.footer.offsetTop;
-       this.aboutCurtain.style.height = (footerPosition - 20)+ 'px';
+       this.aboutCurtain.style.height = '77vh';//(footerPosition - 20)+ 'px';
      }.bind(this))
 
      this.aboutCloseButton.addEventListener('click', function() {
