@@ -18,6 +18,8 @@
 
 *, *:before, *:after {
   box-sizing: inherit;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -50,21 +52,17 @@ body {
   box-sizing: border-box;
 }
 
-
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.2em 3.3em 0 3.3em;
-  //position: fixed;
+  padding: 0.5em 3em 0 3em;
   width: 100%;
-  top: 0;
-  border: 1px solid red;
   height: 13vh;
 
   .icon__close-button {
-    width: pxToRem(70);
+    width: 3.5vw;
+    height: 3.5vw;
     cursor: pointer;
     stroke: #FCB514;
     position: relative;
@@ -73,26 +71,22 @@ body {
   }
 
   .icon__main-logo {
-    //width: pxToRem(77);
     width: 3.5vw;
   }
 
   .alternative-logo-wrapper {
-    //: 1px solid blue;
     position: relative;
   }
 
   .icon__alternative-logo {
-    //width: pxToRem(185);
     width: 8.4vw;
-    //border: 1px solid red;
     bottom: 1.3em;
     position: relative;
   }
 
   .icon__question-mark {
-    //width: pxToRem(77);
     width: 3.5vw;
+    height: 3.5vw;
     cursor: pointer;
     fill: white;
     position: relative;
@@ -112,7 +106,7 @@ body {
     transition-delay: 150ms;
   }
 
-  &:hover .hover-animation-container-2 {
+  &:hover .hover-animation-container--revert {
     width: 150%;
     height: 150%;
   }
@@ -155,34 +149,18 @@ body {
   transition: all 300ms ease-in-out;
 }
 
-.hover-animation-container-2 {
-  width: 0%;
-  height: 0%;
+.hover-animation-container--revert {
+  @extend .hover-animation-container;
   background-color: #FCB514;
-  position: absolute;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 300ms ease-in-out;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .about-curtain__header {
   @extend .header;
   opacity: 0;
   visibility: hidden;
   transition-delay: 200ms;
+  top: 0;
+  position: fixed;
 }
 
 .video-curtain__header {
@@ -190,9 +168,9 @@ body {
   opacity: 0;
   visibility: hidden;
   transition-delay: 250ms;
+  position: fixed;
+  top: 0;
 }
-
-
 
 .video-curtain {
   position: absolute;
@@ -200,7 +178,7 @@ body {
   width: 100%;
   height: 100vh;
   background-color: white;
-  top: -200vh;
+  top: -100vh;
   transition: top 300ms ease-in-out;
 
   &.visible {
@@ -222,23 +200,17 @@ iframe {
 .video-wrapper {
   width: 100%;
   height: 100vh;
-  //border: 3px solid red;
   overflow: hidden;
 }
-
-
 
 .about-curtain {
   width: 100%;
   height: 100vh;
   background-color: white;
-  z-index: 10;
+  z-index: 9999;
   position: absolute;
   top: -100vh;
   transition: top 300ms ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &__operator-sign {
     font-size: pxToRem(50);
@@ -261,7 +233,6 @@ iframe {
     align-items: center;
     width: 100%;
     margin: 1.1em auto 0 auto;
-    //border: 1px solid red;
 
     .icon__main-logo {
       width: pxToRem(100);
@@ -269,11 +240,17 @@ iframe {
   }
 
   &__text-wrapper {
+
+  }
+
+  &__content-wrapper {
     text-align: center;
     color: black;
-    //width: 13em;
-    //border: 1px solid blue;
-    margin-top: 4em;
+    margin-top: 13vh;
+    height: 64vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: pxToRem(33);
 
     p {
@@ -291,12 +268,9 @@ iframe {
 
     .more-space {
       width: 15em;
-      margin: 2.5em 0 0 0;
+      margin: 5vh 0 0 0;
     }
   }
-
-
-
 
   .icon__panowie-programisci-logo {
     width: pxToRem(90);
@@ -307,8 +281,6 @@ iframe {
   }
 }
 
-
-
 .section {
   width: 100%;
   height: 64vh;
@@ -316,11 +288,9 @@ iframe {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  //border: 1px solid blue;
-  //background-image: url("../back.jpg");
 
   &__content-wrapper {
-    //margin-bottom: pxToRem(90);
+
   }
 }
 
@@ -329,8 +299,6 @@ iframe {
   justify-content: center;
 
   &__circle {
-    //width: pxToRem(470);
-    //height: pxToRem(470);
     width: 21.5vw;
     height: 21.5vw;
     border: 0.4375em solid white;
@@ -342,7 +310,7 @@ iframe {
     overflow: hidden;
   }
 
-  &__circle-2 {
+  &__circle-wrapper {
     position: relative;
   }
 
@@ -357,18 +325,14 @@ iframe {
     }
   }
 
-  .counter__half-circle {
+  &__half-circle {
     position: absolute;
     left: 50%;
     top: 4em;
     transform: translateX(-50%);
-    //height: pxToRem(195);
-    //width: pxToRem(390);
     height: 9vw;
     width: 18vw;
     background-color: white;
-    //border-bottom-left-radius: pxToRem(390);
-    //order-bottom-right-radius: pxToRem(390);
     border-bottom-left-radius: 18vw;
     border-bottom-right-radius: 18vw;
   }
@@ -378,7 +342,6 @@ iframe {
     padding: 0;
 
     &--small {
-      //font-size: pxToRem(37);
       font-size: 1.7vw;
       font-weight: 400;
       position: relative;
@@ -386,7 +349,6 @@ iframe {
     }
 
     &--medium {
-      //font-size: pxToRem(62);
       font-size: 2.8vw;
       background-color: #fcb514;
       position: relative;
@@ -408,7 +370,6 @@ iframe {
     text-align: center;
     margin: 0;
     padding: 0;
-    //margin-top: pxToRem(50);
   }
 }
 
@@ -419,8 +380,6 @@ iframe {
   position: absolute;
   border-radius: 50%;
   border: 2px solid white;
-  //width: pxToRem(155);
-  //height: pxToRem(155);
   width: 7vw;
   height: 7vw;
   cursor: pointer;
@@ -449,21 +408,24 @@ iframe {
   transition: all 300ms ease-in-out;
 }
 
-
-
 .footer {
   height: 23vh;
-  border: 1px solid green;
   display: flex;
   justify-content: center;
-  font-size: 2rem;
-  padding-bottom: 0.6em;
-  position: relative;
+  padding-bottom: 1vw;
   bottom: 0;
-  //position: fixed;
   width: 100%;
   flex-wrap: wrap;
   background-color: #fcb514;
+  align-items: center;
+
+  &__content-wrapper {
+    width: 100%;
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+  }
 
   &__copy {
     font-size: pxToRem(36);
@@ -472,18 +434,6 @@ iframe {
 
   &__copy--mobile {
     display: none;
-  }
-
-  .hover-animation-container {
-    width: 0%;
-    height: 0%;
-    background-color: white;
-    position: absolute;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 300ms ease-in-out;
   }
 
   &__icon-wrapper {
@@ -533,15 +483,11 @@ iframe {
 }
 
 .icon__google-play {
-  //width: pxToRem(205);
-  width: 9.4vw;
-  //height: 9.4vw;
+  width: 9vw;
   top: 2px;
   fill: white;
   position: relative;
   z-index: 10;
-  //margin-left: 20px;
-  //margin-right: 10px;
   display: inline-block;
   transition: all 300ms ease-in-out;
 }
@@ -553,24 +499,13 @@ iframe {
   align-items: center;
 }
 
-
-
 .icon__app-store {
   position: relative;
   z-index: 10;
-  //transform: translate(-50%, -50%);
   top: 2px;
-  //border: 1px solid red;
-  //left: 50%;
-  //width: pxToRem(205);
-  width: 9.4vw;
+  width: 9vw;
   fill: white;
-  //filter: invert(0%);
-  //opacity: 0;
-  //fill-opacity: 1;
   transition: all 300ms ease-in-out;
-  //margin-right: 20px;
-  //margin-left: 10px;
 }
 
 
@@ -578,8 +513,36 @@ iframe {
 @media(max-width: 1029px) {
 
   .header {
+    height: 10vh;
+
     .icon__alternative-logo {
       bottom: 0;
+    }
+
+    .icon__close-button {
+      width: pxToRem(77);
+      height: pxToRem(77);
+    }
+
+   .icon__main-logo {
+      width: pxToRem(77);
+      height: pxToRem(77);
+    }
+
+    .icon__alternative-logo {
+      width: pxToRem(185);
+    }
+
+    .icon__question-mark {
+      width: pxToRem(77);
+      height: pxToRem(77);
+    }
+  }
+
+  .about-curtain {
+    &__content-wrapper {
+      margin-top: 10vh;
+      height: 60vh;
     }
   }
 
@@ -588,9 +551,43 @@ iframe {
     &__circle {
       width: pxToRem(470);
       height: pxToRem(470);
-      //width: 21.5vw;
-      //height: 21.5vw;
     }
+
+    &__half-circle {
+      height: pxToRem(195);
+      width: pxToRem(390);
+      border-bottom-left-radius: pxToRem(390);
+      border-bottom-right-radius: pxToRem(390);
+    }
+
+    &__copy {
+
+      &--small {
+        font-size: pxToRem(37);
+      }
+
+      &--medium {
+        font-size: pxToRem(62);
+
+      }
+
+      &--big {
+        font-size: pxToRem(165);
+      }
+    }    
+  }
+
+  .play-button-wrapper {
+    width: pxToRem(155);
+    height: pxToRem(155);
+  }
+
+  .section {
+    height: 60vh;
+  }
+
+  .footer {
+    height: 30vh;
   }
 
   .footer__copy {
